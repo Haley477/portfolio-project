@@ -17,9 +17,7 @@ type JobDetail = {
 
 // Update the page props type to match Next.js 15 expectations
 type JobDetailPageProps = {
-  params: Promise<{
-    name: string;
-  }>;
+  params:{name: string;}
 };
 
 // Detailed job information
