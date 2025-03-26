@@ -80,13 +80,14 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetailPage({ params }: { params: { name: string } }) {
+export default async function ProjectDetailPage(props: { params: Promise<{ name: string }> }) {
+  const params = await props.params;
   // Convert the dynamic route parameter to match our key format
   const projectKey = params.name.toLowerCase();
-  
+
   // Find the project or return 404 if not found
   const project = projectDetails[projectKey];
-  
+
   if (!project) {
     notFound();
   }

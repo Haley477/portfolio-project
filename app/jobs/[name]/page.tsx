@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 // Define a detailed Job type
 type JobDetail = {
@@ -12,6 +13,13 @@ type JobDetail = {
   endDate: string;
   responsibilities: string[];
   achievements: string[];
+};
+
+// Update the page props type to match Next.js 15 expectations
+type JobDetailPageProps = {
+  params: Promise<{
+    name: string;
+  }>;
 };
 
 // Detailed job information
@@ -119,10 +127,29 @@ export function generateStaticParams() {
   }));
 }
 
-export default function JobDetailPage({ params }: { params: { name: string } }) {
+export async function generateMetadata({ 
+  params 
+}: JobDetailPageProps): Promise<Metadata> {
+  // Awaiting params to ensure it's resolved before accessing it
+  const { name } = await params;
+
+  const job = jobDetails[name];
+
+  if (!job) {
+    return {};
+  }
+
+  return {
+    title: `${job.name} at ${job.company}`,
+    description: job.description,
+  };
+}
+
+export default async function JobDetailPage(props: JobDetailPageProps) {
+  const params = await props.params;
   // Find the job or return 404 if not found
   const job = jobDetails[params.name];
-  
+
   if (!job) {
     notFound();
   }
