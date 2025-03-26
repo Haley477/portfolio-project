@@ -129,7 +129,7 @@ export async function generateMetadata({
   params 
 }: JobDetailPageProps): Promise<Metadata> {
   // Awaiting params to ensure it's resolved before accessing it
-  const { name } = await params;
+  const { name } = params;
 
   const job = jobDetails[name];
 
