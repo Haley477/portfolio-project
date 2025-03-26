@@ -17,7 +17,7 @@ type JobDetail = {
 
 // Update the page props type to match Next.js 15 expectations
 type JobDetailPageProps = {
-  params:{name: string;}
+  params: { name: string; };
 };
 
 // Detailed job information
@@ -125,28 +125,23 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ 
-  params 
-}: JobDetailPageProps): Promise<Metadata> {
-  // Awaiting params to ensure it's resolved before accessing it
+export async function generateMetadata({ params }: JobDetailPageProps): Promise<Metadata> {
   const { name } = params;
-
   const job = jobDetails[name];
 
-  if (!job) {
-    return {};
-  }
+  if (!job) return {};
 
   return {
     title: `${job.name} at ${job.company}`,
-    description: job.description,
+    description: job.description
   };
 }
 
-export default async function JobDetailPage(props: JobDetailPageProps) {
-  const params = await props.params;
+export default function JobDetailPage({ params }: JobDetailPageProps) {
+  const { name } = params;
+
   // Find the job or return 404 if not found
-  const job = jobDetails[params.name];
+  const job = jobDetails[name];
 
   if (!job) {
     notFound();
