@@ -125,8 +125,8 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: JobDetailPageProps): Promise<Metadata> {
-  const { name } = params;
+export async function generateMetadata({ Promise }: JobDetailPageProps): Promise<Metadata> {
+  const { name } = Promise;
   const job = jobDetails[name];
 
   if (!job) return {};
