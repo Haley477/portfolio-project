@@ -1,4 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This project was made in Web Development class to practice using Next.js by creating a fake website that can be used as a portfolio eventually for all of the projects and jobs and languages that have been learned. 
+It uses a lot of the main features that Next.js contains that other web developing tools don't. It was actually made mainly from the help of AI. In this project, our teacher encouraged us to use AI as much as we can.
 
 ## Getting Started
 
@@ -29,8 +31,5 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployed on Vercel
+This project is currently deployed on Vercel. You can find it at https://portfolio-project-one-lemon.vercel.app/
